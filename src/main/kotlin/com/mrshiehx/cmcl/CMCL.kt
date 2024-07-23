@@ -316,7 +316,7 @@ object CMCL {
     val language: LanguageEnum by lazy {
         val languageString: String = getConfig().optString("language")
         if (isEmpty(languageString)) {
-            overriddenValueOf(Locale.getDefault().language).also {
+            return@lazy overriddenValueOf(Locale.getDefault().language).also {
                 Utils.saveConfig(
                     getConfig().put(
                         "language",
@@ -325,7 +325,7 @@ object CMCL {
                 )
             }
         } else {
-            overriddenValueOf(languageString)
+            return@lazy overriddenValueOf(languageString)
         }
     }
 

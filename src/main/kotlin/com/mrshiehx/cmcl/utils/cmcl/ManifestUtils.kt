@@ -31,7 +31,7 @@ object ManifestUtils {
                 val `is` = url.openStream()
                 if (`is` != null) {
                     val manifest = Manifest(`is`)
-                    manifest.mainAttributes
+                    return@lazy manifest.mainAttributes
                 }
             }
         } catch (ignore: Throwable) {

@@ -674,7 +674,7 @@ object ForgeMerger : ExtraMerger {
         ) { //in 9+ the changed from 1.8 to just 9. So this essentially detects if we're <9
             try {
                 val getPlatform = ClassLoader::class.java.getDeclaredMethod("getPlatformClassLoader")
-                getPlatform.invoke(null) as ClassLoader
+                return@lazy getPlatform.invoke(null) as ClassLoader
             } catch (ignore: Exception) {
             }
         }

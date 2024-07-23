@@ -53,10 +53,10 @@ class OfflineSkinServer(
             try {
                 val keyPairGenerator = KeyPairGenerator.getInstance("RSA")
                 keyPairGenerator.initialize(4096, SecureRandom())
-                keyPairGenerator.genKeyPair()
+                return@lazy keyPairGenerator.genKeyPair()
             } catch (e: NoSuchAlgorithmException) {
                 if (isDebug()) e.printStackTrace()
-                null
+                return@lazy null
             }
         }
 
